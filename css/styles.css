@@ -1,88 +1,74 @@
 /* General */
 body {
-  font-family: 'Algerian', sans-serif;
-  background-image: url("https://cdn.pixabay.com/photo/2016/11/14/22/18/christmas-baubles-1824856_1280.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  color: #ffffff;
+    font-family: 'Algerian', sans-serif;
+    background-image: url("https://cdn.pixabay.com/photo/2016/11/14/22/18/christmas-baubles-1824856_1280.png");
+    background-repeat: no-repeat;
+    background-position: center center; /* Centra la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
 }
 
 /* Contenedor Principal */
 #container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Centra verticalmente todo */
+    text-align: center;
 }
 
 /* Texto Principal */
 #topic {
-  color: #bb2528; /* Rojo navideño */
-  text-align: center;
-  font-size: 2.5rem; /* Ajusta el tamaño para diferentes dispositivos */
-  margin-bottom: 20px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    color: #bb2528; /* Rojo navideño */
+    text-align: center;
+    font-size: 4rem; /* Texto más grande */
+    margin: 0;
+    padding: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para destacar */
 }
 
 /* Botón */
 #get-topic {
-  font-size: 1.5rem;
-  width: 80%;
-  max-width: 300px;
-  height: 50px;
-  background-color: #165b33; /* Verde oscuro navideño */
-  color: #ffffff;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: transform 0.2s, background-color 0.2s;
+    font-size: 1.8rem;
+    width: 80%;
+    max-width: 300px;
+    height: 60px;
+    background-color: #165b33; /* Verde oscuro navideño */
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
 #get-topic:hover {
-  background-color: #1e8449; /* Un tono más claro de verde */
-  transform: scale(1.05);
-}
-
-/* Etapa */
-.stage {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px auto;
-  perspective: 1200px;
+    background-color: #1e8449; /* Un tono más claro de verde */
+    transform: scale(1.05);
 }
 
 /* Responsive: texto y tamaños ajustados */
 @media (max-width: 768px) {
-  #topic {
-      font-size: 2rem;
-  }
+    #topic {
+        font-size: 3rem;
+    }
 
-  #get-topic {
-      font-size: 1.2rem;
-      height: 40px;
-  }
+    #get-topic {
+        font-size: 1.5rem;
+        height: 50px;
+    }
 }
 
 @media (max-width: 480px) {
-  #topic {
-      font-size: 1.5rem;
-  }
+    #topic {
+        font-size: 2rem;
+    }
 
-  #get-topic {
-      font-size: 1rem;
-      height: 35px;
-  }
+    #get-topic {
+        font-size: 1.2rem;
+        height: 40px;
+    }
 }
