@@ -1,74 +1,49 @@
-/*const getRandomTopic = function () {
-    readTextFile("js/topics.json", function (fileContent) {
-        const data = JSON.parse(fileContent)
-        document.getElementById("topic").innerHTML = data.topics[ Math.floor((Math.random() * data.topics.length) + 0) ];
-    })
-}
-
-function readTextFile(file, callback) {
-    const rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-            callback(rawFile.responseText);
-        }
-    }
-    rawFile.send(null);
-}*/
-
-//crear contenedor de bolitas con las bolitas
-
-const bolasParaSorteo = ["Cambia con quien esta a tú derecha.",
-    "Cambia con quien esta a tú izquierda.",
-    "Cambia con el que este al frente.",
-    "Todos cambian con quien esta a tú derecha.",
-    "Todos cambian con quien esta a tú izquierda.",
-    "Todos cambian con el que este al frente.",
+// Lista de acciones posibles
+const bolasParaSorteo = [
+    "Cambia con quien está a tu derecha.",
+    "Cambia con quien está a tu izquierda.",
+    "Cambia con el que esté al frente.",
+    "Todos cambian con quien está a tu derecha.",
+    "Todos cambian con quien está a tu izquierda.",
+    "Todos cambian con el que esté al frente.",
     "Cambiar con quien tú quieras.",
-    "Cambiar con quien tú quieras.",
-    "Cambiar con quien tú quieras.",
-    "Cambiar con quien tú quieras.",
-    "Re ordenar los regalos.",
+    "Reordenar los regalos.",
     "Todos cambian con quien quieran.",
     "No pasa nada.",
-    "No pasa nada.",
-    "No pasa nada.",
-    "Tú y tú pareja reorganizan.",
+    "Tú y tu pareja reorganizan.",
     "Todos toman un shot.",
-    "El de tú derecha toma shot.",
-    "Elije quien toma un shot.",
-    "Tú y tú pareja cambian.",
-    "Tú y tú pareja toman Shot.",
-    "Elige que pareja cambia.",
+    "El de tu derecha toma shot.",
+    "Elige quién toma un shot.",
+    "Tú y tu pareja cambian.",
+    "Tú y tu pareja toman shot.",
+    "Elige qué pareja cambia.",
     "Tú tomas shot.",
-    "Tú tomas shot.",
-    "Tú tomas shot.",
-    "Tú tomas shot.",
-    "Tú y tú pareja toman Shot.",
-    "Tú y tú pareja toman Shot.",
-    "Tú pareja toma Shot.",
-    "Tú pareja toma Shot.",
+    "Tu pareja toma shot."
+];
 
-]
+// Lista de acciones ya sorteadas
+const bolasSorteadas = [];
 
-//crear contenedor de bolitas que ya salieron 
-
-const bolasSorteadas = []
-
-//mostrar las bolitas
-
-const mostrarBolita = function() {
-        //sacar la primera blita de la lista
-        const bolaEnJuego = agarraLaBolita()
-            //mostrar la bolita
-        document.getElementById("topic").innerHTML = bolaEnJuego
-            //mandar la bola sorteada a las que ya salieron
-        bolasSorteadas.push(bolaEnJuego)
+// Función para mostrar la bolita
+function mostrarBolita() {
+    if (bolasParaSorteo.length === 0) {
+        document.getElementById("topic").innerHTML = "¡No quedan más bolitas!";
+        return;
     }
-    //saca aleatoriamente la bolita desde las bolas disponibles para el sorteo
+    
+    // Sacar una bolita aleatoria
+    const bolaEnJuego = agarraLaBolita();
+    
+    // Mostrar la bolita
+    document.getElementById("topic").innerHTML = bolaEnJuego;
+    
+    // Guardar la bolita sorteada
+    bolasSorteadas.push(bolaEnJuego);
+}
+
+// Función para agarrar una bolita aleatoria
 function agarraLaBolita() {
-    const cantidadDisponible = bolasParaSorteo.length
-    const indiceAleatorio = Math.random() * (cantidadDisponible - 0) + 0;
-    return bolasParaSorteo.splice(indiceAleatorio, 1)[0]
+    const cantidadDisponible = bolasParaSorteo.length;
+    const indiceAleatorio = Math.floor(Math.random() * cantidadDisponible);
+    return bolasParaSorteo.splice(indiceAleatorio, 1)[0];
 }
